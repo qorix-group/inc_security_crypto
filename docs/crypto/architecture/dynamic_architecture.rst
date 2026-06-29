@@ -22,7 +22,8 @@ API Dynamic Architecture
    :security: YES
    :safety: QM
    :status: invalid
-   :fulfils:
+   :belongs_to: comp__mod_temp_component_name_template
+   :fulfils: comp_req__mod_temp_component_name__some_title
 
    Dynamic interactions for typical crypto operations.
 
