@@ -104,7 +104,7 @@ Module Folder Structure (Single-Feature Variant)
 The following variant keeps the same structure but removes the additional
 feature-name nesting under ``docs/features/``. In this case, the ``features/``
 subfolder is optional and omitted. This variant is intended for modules that only implement a single feature, to avoid unnecessary nesting.
-For identification of the single feature, the repository name or module name should be replicate the feature name.
+For identification of the single feature, the repository name or module name should replicate the feature name.
 
 .. parsed-literal::
 
@@ -222,6 +222,7 @@ An example of modeling architecture in Sphinx Needs can be found in
 .. toctree::
    :maxdepth: 1
 
+   examples/docs/architecture_modeling_example
 
 
 Please note, that is not a template for architecture documentation, but an example of how to use Sphinx Needs for architecture modeling. The architecture documentation of the components and features of the module should follow the provided templates and guidelines.

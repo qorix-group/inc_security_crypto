@@ -92,7 +92,7 @@ Security Work products List
 .. attention::
     The above table must be updated according to your feature security planning.
 
-    - Fill the work producs links
+    - Fill the work products links
 
 Feature Security Package
 ========================

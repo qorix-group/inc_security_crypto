@@ -38,6 +38,7 @@ include_patterns = [
     "index.rst",
     "docs/**",
     "score/**",
+    "examples/**",
 ]
 
 exclude_patterns = [
@@ -48,6 +49,7 @@ exclude_patterns = [
     "bazel-*",
     ".venv_docs",
     "_build",
+    "examples/README.md",
 ]
 
 templates_path = ["templates"]
