@@ -212,6 +212,7 @@ For documentation of individual components within this module:
    :maxdepth: 1
 
    score/component_example/docs/index
+   score/iav_primula/docs/index
    score/crypto/daemon/data_manager/docs/index
 
 Architecture Modeling Example

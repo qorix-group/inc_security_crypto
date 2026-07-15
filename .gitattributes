@@ -1,0 +1,3 @@
+score/iav_primula/src/*.rs text eol=lf
+score/iav_primula/tests/*.rs text eol=lf
+score/iav_primula/tests/BUILD text eol=lf
