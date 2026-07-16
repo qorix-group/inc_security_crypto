@@ -123,13 +123,14 @@ class KeyManagementHandlerTest : public ::testing::Test
     static constexpr dm::ClientId kDeniedClient = (9999ULL << 32) | 42ULL;
     static constexpr common::ProviderId kProviderId = 0;  // OPENSSL provider (registered first)
 
-    dm::DataManager::Sptr m_data_manager;
     km::SlotRegistry::Sptr m_slot_registry;
     km::IKeyFactory::Sptr m_km_handler;
     km::IKeySlotHandler::Sptr m_slot_handler;
     km::KeyManagementService::Sptr m_service;
     std::shared_ptr<handler_ns::OpenSslKeyManagementHandler> m_handler;
     dm::DataNodeId m_parent_id{0U};
+    // Keep last to destroy first
+    dm::DataManager::Sptr m_data_manager;
 };
 
 // ============================================================================
