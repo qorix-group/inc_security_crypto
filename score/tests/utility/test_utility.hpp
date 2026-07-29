@@ -19,6 +19,7 @@
 #include <cstdint>
 #include <mutex>
 #include <string>
+#include <string_view>
 #include <vector>
 
 namespace tests
@@ -56,6 +57,18 @@ enum class Color : int
  * @return Vector containing the file contents
  */
 std::vector<uint8_t> read_bin(const std::string& path);
+
+/**
+ * @brief Reinterpret text as a vector of bytes
+ *
+ * The counterpart to read_bin() for inputs held inline in the test source. Use
+ * it when the input is arbitrary round-trip material rather than a fixed vector
+ * paired with an expected output, so no file is needed.
+ *
+ * @param text Characters to reinterpret
+ * @return Vector containing the bytes of text, without a terminating NUL
+ */
+std::vector<uint8_t> as_bytes(std::string_view text);
 
 /**
  * @brief Print bytes in hexadecimal format

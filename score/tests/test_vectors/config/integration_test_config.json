@@ -51,6 +51,26 @@
         "allowed_write_uids": [0],
         "deployment_path" : "/opt/crypto/deploy/integration_softhsm_hmac.kv",
         "deployment_format" : "kv"
+      },
+      {
+        "slot_name": "HMAC_SHA256_SignOnlySlot_OpenSSL",
+        "algorithm": "AES-256",
+        "provider_names": ["OPENSSL"],
+        "allowed_operations": "SIGN",
+        "allowed_uids": [0, 1000],
+        "allowed_write_uids": [0],
+        "deployment_path" : "/opt/crypto/deploy/integration_openssl_hmac.kv",
+        "deployment_format" : "kv"
+      },
+      {
+        "slot_name": "HMAC_SHA256_SignOnlySlot_SoftHSM",
+        "algorithm": "AES-256",
+        "provider_names": ["SOFTHSM"],
+        "allowed_operations": "SIGN",
+        "allowed_uids": [0, 1000],
+        "allowed_write_uids": [0],
+        "deployment_path" : "/opt/crypto/deploy/integration_softhsm_hmac.kv",
+        "deployment_format" : "kv"
       }
     ],
     "app_resource_entries": [
@@ -80,6 +100,16 @@
         "slot_name": "HMAC_SHA256_IntegrationTestKey_SoftHSM"
       },
       {
+        "uid": 0,
+        "app_resource_id": "HMAC_SHA256_SignOnlySlot_OpenSSL",
+        "slot_name": "HMAC_SHA256_SignOnlySlot_OpenSSL"
+      },
+      {
+        "uid": 0,
+        "app_resource_id": "HMAC_SHA256_SignOnlySlot_SoftHSM",
+        "slot_name": "HMAC_SHA256_SignOnlySlot_SoftHSM"
+      },
+      {
         "uid": 1000,
         "app_resource_id": "test/hmac",
         "slot_name": "test/hmac-sha256"
@@ -103,6 +133,16 @@
         "uid": 1000,
         "app_resource_id": "HMAC_SHA256_IntegrationTestKey_SoftHSM",
         "slot_name": "HMAC_SHA256_IntegrationTestKey_SoftHSM"
+      },
+      {
+        "uid": 1000,
+        "app_resource_id": "HMAC_SHA256_SignOnlySlot_OpenSSL",
+        "slot_name": "HMAC_SHA256_SignOnlySlot_OpenSSL"
+      },
+      {
+        "uid": 1000,
+        "app_resource_id": "HMAC_SHA256_SignOnlySlot_SoftHSM",
+        "slot_name": "HMAC_SHA256_SignOnlySlot_SoftHSM"
       }
     ]
   }

@@ -192,6 +192,18 @@ class TestCryptoDaemon:
                 Path("score/tests/integration_tests/score_api_mac_example"): Path(
                     "/opt/crypto/bin/score_api_mac_example"
                 ),
+                Path("score/tests/integration_tests/score_api_cipher_example"): Path(
+                    "/opt/crypto/bin/score_api_cipher_example"
+                ),
+                Path("score/tests/integration_tests/score_api_random_example"): Path(
+                    "/opt/crypto/bin/score_api_random_example"
+                ),
+                Path("score/tests/integration_tests/score_api_ecdsa_example"): Path(
+                    "/opt/crypto/bin/score_api_ecdsa_example"
+                ),
+                Path("score/tests/integration_tests/score_api_key_permissions_example"): Path(
+                    "/opt/crypto/bin/score_api_key_permissions_example"
+                ),
                 Path("score/tests/integration_tests/score_demo"): Path(
                     "/opt/crypto/bin/score_demo"
                 ),
@@ -337,6 +349,58 @@ class TestCryptoDaemon:
         )
         assert exit_code == 0, (
             f"test_score_api_mac_example failed with exit code {exit_code}. Output: {output.decode()}"
+        )
+
+    def test_score_api_cipher_example(self, docker, daemon):
+        """Test SCORE symmetric encryption / decryption API."""
+
+        exit_code, output = docker.exec_run(
+            "sh -c 'LD_LIBRARY_PATH=/opt/crypto/lib:$LD_LIBRARY_PATH /opt/crypto/bin/score_api_cipher_example'"
+        )
+        logger.info(
+            f"test_score_api_cipher_example exit_code={exit_code}, output:\n{output.decode()}"
+        )
+        assert exit_code == 0, (
+            f"test_score_api_cipher_example failed with exit code {exit_code}. Output: {output.decode()}"
+        )
+
+    def test_score_api_random_example(self, docker, daemon):
+        """Test SCORE random number generation API."""
+
+        exit_code, output = docker.exec_run(
+            "sh -c 'LD_LIBRARY_PATH=/opt/crypto/lib:$LD_LIBRARY_PATH /opt/crypto/bin/score_api_random_example'"
+        )
+        logger.info(
+            f"test_score_api_random_example exit_code={exit_code}, output:\n{output.decode()}"
+        )
+        assert exit_code == 0, (
+            f"test_score_api_random_example failed with exit code {exit_code}. Output: {output.decode()}"
+        )
+
+    def test_score_api_ecdsa_example(self, docker, daemon):
+        """Test SCORE ECDSA key generation, signing and verification API."""
+
+        exit_code, output = docker.exec_run(
+            "sh -c 'LD_LIBRARY_PATH=/opt/crypto/lib:$LD_LIBRARY_PATH /opt/crypto/bin/score_api_ecdsa_example'"
+        )
+        logger.info(
+            f"test_score_api_ecdsa_example exit_code={exit_code}, output:\n{output.decode()}"
+        )
+        assert exit_code == 0, (
+            f"test_score_api_ecdsa_example failed with exit code {exit_code}. Output: {output.decode()}"
+        )
+
+    def test_score_api_key_permissions_example(self, docker, daemon):
+        """Test SCORE key operation permission enforcement at context creation."""
+
+        exit_code, output = docker.exec_run(
+            "sh -c 'LD_LIBRARY_PATH=/opt/crypto/lib:$LD_LIBRARY_PATH /opt/crypto/bin/score_api_key_permissions_example'"
+        )
+        logger.info(
+            f"test_score_api_key_permissions_example exit_code={exit_code}, output:\n{output.decode()}"
+        )
+        assert exit_code == 0, (
+            f"test_score_api_key_permissions_example failed with exit code {exit_code}. Output: {output.decode()}"
         )
 
     def test_hash_performance_test(self, docker, daemon):

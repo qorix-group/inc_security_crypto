@@ -65,6 +65,61 @@ cc_binary(
 )
 
 cc_binary(
+    name = "score_api_cipher_example",
+    srcs = ["score_api_cipher_example.cpp"],
+    data = [
+        "//score/tests/test_vectors/config:integration_test_config",
+    ],
+    dynamic_deps = ["//third_party/grpc:libgrpc_shared"],
+    deps = [
+        "//score/crypto/src/api:crypto_stack",
+        "//score/tests/utility",
+        "@googletest//:gtest",
+    ],
+)
+
+cc_binary(
+    name = "score_api_random_example",
+    srcs = ["score_api_random_example.cpp"],
+    data = [
+        "//score/tests/test_vectors/config:integration_test_config",
+    ],
+    dynamic_deps = ["//third_party/grpc:libgrpc_shared"],
+    deps = [
+        "//score/crypto/src/api:crypto_stack",
+        "//score/tests/utility",
+        "@googletest//:gtest",
+    ],
+)
+
+cc_binary(
+    name = "score_api_ecdsa_example",
+    srcs = ["score_api_ecdsa_example.cpp"],
+    data = [
+        "//score/tests/test_vectors/config:integration_test_config",
+    ],
+    dynamic_deps = ["//third_party/grpc:libgrpc_shared"],
+    deps = [
+        "//score/crypto/src/api:crypto_stack",
+        "//score/tests/utility",
+        "@googletest//:gtest",
+    ],
+)
+
+cc_binary(
+    name = "score_api_key_permissions_example",
+    srcs = ["score_api_key_permissions_example.cpp"],
+    data = [
+        "//score/tests/test_vectors/config:integration_test_config",
+    ],
+    dynamic_deps = ["//third_party/grpc:libgrpc_shared"],
+    deps = [
+        "//score/crypto/src/api:crypto_stack",
+        "@googletest//:gtest",
+    ],
+)
+
+cc_binary(
     name = "score_demo",
     srcs = ["score_demo.cpp"],
     data = [
@@ -89,8 +144,12 @@ py_itf_test(
     data = [
         ":hash_performance_test",
         ":init_softhsm_token",
+        ":score_api_cipher_example",
+        ":score_api_ecdsa_example",
         ":score_api_hash_example",
+        ":score_api_key_permissions_example",
         ":score_api_mac_example",
+        ":score_api_random_example",
         ":score_demo",
         "//score/crypto/src/api/control_plane",
         "//score/crypto/src/daemon:crypto_daemon",

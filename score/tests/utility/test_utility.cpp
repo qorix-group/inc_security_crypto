@@ -29,6 +29,11 @@ std::vector<uint8_t> read_bin(const std::string& path)
     return std::vector<uint8_t>((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
 }
 
+std::vector<uint8_t> as_bytes(std::string_view text)
+{
+    return std::vector<uint8_t>{text.begin(), text.end()};
+}
+
 void print_hex(const std::string& prefix, const std::vector<uint8_t>& vec, size_t len, Color color)
 {
     int color_index = static_cast<int>(color);
